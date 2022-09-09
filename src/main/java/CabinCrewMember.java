@@ -11,7 +11,7 @@ public class CabinCrewMember {
         return name;
     }
 
-    public void setPassengerName(String name){
+    public void setCrewName(String name){
         this.name = name;
     }
     public Rank getRank() {
