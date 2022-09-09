@@ -1,7 +1,7 @@
 public class Pilot {
 
     private String name;
-    private Rank rank;
+    private final Rank rank;
     private String licenseNumber;
 
     public Pilot(String name, Rank rank, String licenseNumber) {

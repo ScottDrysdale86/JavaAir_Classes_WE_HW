@@ -1,19 +1,19 @@
 import java.util.ArrayList;
 
 public class Flight {
-    private ArrayList<Pilot> pilots;
-    private ArrayList<CabinCrewMember> cabinCrew;
-    private ArrayList<Passenger> passengers;
-    private Plane plane;
-    private String flightNumber;
-    private String destination;
-    private String departureAirport;
-    private String departureTime;
+    private final ArrayList<Pilot> pilots;
+    private final ArrayList<CabinCrewMember> cabinCrew;
+    private final ArrayList<Passenger> passengers;
+    private final Plane plane;
+    private final String flightNumber;
+    private final String destination;
+    private final String departureAirport;
+    private final String departureTime;
 
     public Flight(Plane plane, String flightNumber, String destination, String departureAirport, String departureTime) {
-        this.pilots = new ArrayList<Pilot>();
-        this.cabinCrew = new ArrayList<CabinCrewMember>();
-        this.passengers = new ArrayList<Passenger>();
+        this.pilots = new ArrayList<>();
+        this.cabinCrew = new ArrayList<>();
+        this.passengers = new ArrayList<>();
         this.plane = plane;
         this.flightNumber = flightNumber;
         this.destination = destination;

@@ -1,6 +1,6 @@
 public class CabinCrewMember {
     private String name;
-    private Rank rank;
+    private final Rank rank;
 
     public CabinCrewMember(String name, Rank rank) {
         this.name = name;
