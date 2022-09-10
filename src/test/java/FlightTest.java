@@ -12,6 +12,7 @@ public class FlightTest {
     CabinCrewMember cabinCrewMember2;
 
     Passenger passenger;
+    Passenger passenger2;
 
     Plane plane;
 
@@ -30,6 +31,8 @@ public class FlightTest {
         flight.addToCabinCrew(cabinCrewMember2);
 
         passenger = new Passenger("Robert Smith", 1);
+        passenger2 = new Passenger("James Bond", 5);
+
 
     }
 
@@ -83,6 +86,19 @@ public class FlightTest {
     public void canGetNumberOfAvailableSeats(){
         flight.addToPassengers(passenger);
         assertEquals(349, this.flight.getAvailableSeats());
+    }
+
+    @Test
+    public void canGetPlaneTotalWeight(){
+        assertEquals(14000, this.flight.getPlaneTotalWeight(),0.0);
+    }
+
+    @Test
+    public void canGetTotalBagsBooked() {
+        flight.addToPassengers(passenger);
+        flight.addToPassengers(passenger2);
+
+        assertEquals(6, this.flight.getTotalBagsBooked(),0.0);
     }
 
 

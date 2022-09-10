@@ -67,4 +67,16 @@ public class Flight {
     public int getAvailableSeats() {
         return this.plane.getPlaneCapacity() - this.getPassengersNumber();
     }
+
+    public double getPlaneTotalWeight(){
+        return this.plane.getPlaneWeight();
+    }
+
+    public double getTotalBagsBooked(){
+        int bags = 0;
+        for (Passenger passenger: this.passengers) {
+           bags += passenger.getNumOfBags();
+        }
+        return bags;
+    }
 }
