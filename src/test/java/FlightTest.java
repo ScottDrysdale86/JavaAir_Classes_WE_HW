@@ -1,6 +1,9 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalTime;
+import java.util.HashMap;
+
 import static org.junit.Assert.assertEquals;
 
 public class FlightTest {
@@ -13,6 +16,7 @@ public class FlightTest {
 
     Passenger passenger;
     Passenger passenger2;
+    Passenger passenger3;
 
     Plane plane;
 
@@ -24,7 +28,7 @@ public class FlightTest {
         cabinCrewMember = new CabinCrewMember("Jenny Bond", Rank.FLIGHTATTENDANT);
         cabinCrewMember2 = new CabinCrewMember("Alex Smith", Rank.FLIGHTATTENDANT);
         plane = new Plane(PlaneType.AIRBUS350);
-        flight = new Flight(plane,"SHE234","EDI","LHR","13:00");
+        flight = new Flight(plane,"SHE234","EDI","LHR", LocalTime.parse("13:00"));
         flight.addToPilots(pilot);
         flight.addToPilots(pilot2);
         flight.addToCabinCrew(cabinCrewMember);
@@ -32,6 +36,8 @@ public class FlightTest {
 
         passenger = new Passenger("Robert Smith", 1);
         passenger2 = new Passenger("James Bond", 5);
+        passenger3 = new Passenger("James Blonde", 1);
+
 
 
     }
@@ -63,7 +69,7 @@ public class FlightTest {
 
     @Test
     public void hasDepartureTime() {
-        assertEquals("13:00", this.flight.getDepartureTime());
+        assertEquals(LocalTime.parse("13:00"), this.flight.getDepartureTime());
     }
 
     @Test
@@ -74,7 +80,10 @@ public class FlightTest {
     @Test
     public void canAddPassenger(){
         flight.addToPassengers(passenger);
+        flight.addToPassengers(passenger);
+
         assertEquals(1, this.flight.getPassengersNumber());
+        assertEquals("EDI", this.passenger.getPassengerFlightDetails().get("Destination"));
     }
 
     @Test
@@ -101,7 +110,30 @@ public class FlightTest {
         assertEquals(6, this.flight.getTotalBagsBooked(),0.0);
     }
 
+    @Test
+    public void hasFlightDetailsPlaneName(){
+        flight.returnFlightHashmap();
+        assertEquals(PlaneType.AIRBUS350.name(), this.flight.getPlaneNameDetails());
+    }
+
+    @Test
+    public void hasFlightDetailsDestination(){
+        flight.returnFlightHashmap();
+        assertEquals("EDI", this.flight.getDestinationDetails());
+    }
+
+    @Test
+    public void canGetSeatNumber(){
+        flight.addToPassengers(passenger);
+        flight.addToPassengers(passenger2);
+        flight.addToPassengers(passenger3);
+
+        assertEquals(1, this.passenger.getSeatNumber());
+        assertEquals(2, this.passenger2.getSeatNumber());
+        assertEquals(3, this.passenger3.getSeatNumber());
 
 
 
+//        flight.getSeatNumber();
+    }
 }

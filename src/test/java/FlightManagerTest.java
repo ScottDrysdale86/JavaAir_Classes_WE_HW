@@ -1,7 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
+import java.time.LocalTime;
 
 import static org.junit.Assert.assertEquals;
 
@@ -25,7 +25,7 @@ public class FlightManagerTest {
         cabinCrewMember = new CabinCrewMember("Jenny Bond", Rank.FLIGHTATTENDANT);
         cabinCrewMember2 = new CabinCrewMember("Alex Smith", Rank.FLIGHTATTENDANT);
         plane = new Plane(PlaneType.AIRBUS350);
-        flight = new Flight(plane,"SHE234","EDI","LHR","13:00");
+        flight = new Flight(plane,"SHE234","EDI","LHR", LocalTime.parse("13:00"));
         flight.addToPilots(pilot);
         flight.addToPilots(pilot2);
         flight.addToCabinCrew(cabinCrewMember);
